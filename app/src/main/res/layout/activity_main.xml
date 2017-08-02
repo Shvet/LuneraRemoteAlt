@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -12,10 +14,23 @@
         android:layout_height="match_parent"
         tools:context="com.luneraremote.MainActivity">
 
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/secondary">
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:logo="@drawable/ic_icon_lunera" />
+        </android.support.design.widget.AppBarLayout>
+
         <LinearLayout
             android:id="@+id/occupancy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/appbar"
             android:layout_margin="32dp"
             android:gravity="center"
             android:minHeight="72dp"
@@ -25,10 +40,10 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/remote_on"
+                android:contentDescription="Image"
                 android:minHeight="72dp"
-                android:minWidth="72dp"
-                android:background="@drawable/occupancy_detected"
-                android:contentDescription="Image" />
+                android:minWidth="72dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -44,6 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_below="@+id/appbar"
             android:layout_margin="32dp"
             android:gravity="center"
             android:minHeight="72dp"
@@ -53,10 +69,10 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/remote_off"
+                android:contentDescription="Image"
                 android:minHeight="72dp"
-                android:minWidth="72dp"
-                android:background="@drawable/occupancy_lost"
-                android:contentDescription="Image" />
+                android:minWidth="72dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,10 +97,10 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/remote_dim_up"
+                android:contentDescription="Image"
                 android:minHeight="72dp"
-                android:minWidth="72dp"
-                android:background="@drawable/dim"
-                android:contentDescription="Image" />
+                android:minWidth="72dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -111,10 +127,10 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/remote_dim_down"
+                android:contentDescription="Image"
                 android:minHeight="72dp"
-                android:minWidth="72dp"
-                android:background="@drawable/dim"
-                android:contentDescription="Image" />
+                android:minWidth="72dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -140,10 +156,10 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/remote_blink"
+                android:contentDescription="Image"
                 android:minHeight="72dp"
-                android:minWidth="72dp"
-                android:background="@drawable/blink"
-                android:contentDescription="Image" />
+                android:minWidth="72dp" />
 
             <TextView
                 android:layout_width="wrap_content"
