@@ -3,8 +3,6 @@ package com.luneraremote;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothManager;
-import android.bluetooth.le.AdvertiseCallback;
-import android.bluetooth.le.AdvertiseSettings;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -39,9 +37,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        timer = new Timer();
-        timerTask = new MyTimerTask();
 
         BluetoothManager mBluetoothManager = (BluetoothManager) this.getSystemService(BLUETOOTH_SERVICE);
         if (!mBluetoothManager.getAdapter().isEnabled()) {
@@ -93,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         "05",
                         "",
                         -69);
-
                 break;
             case R.id.occupancy_lost:
                 snackBarShow("OFF Message Sent.");
@@ -195,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /*
          *  Timer will stop after 2 Seconds, Change 2 will other numbers for following seconds
          */
-        timer.schedule(timerTask, 2000);
+        reScheduleTimer(2);
     }
 
     @Override
@@ -221,6 +215,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return;
             }
         }
+    }
+
+    public void reScheduleTimer(int duration) {
+        timer = new Timer("alertTimer", true);
+        timerTask = new MyTimerTask();
+        timer.schedule(timerTask, 1000L, duration * 1000L);
     }
 
     private class MyTimerTask extends TimerTask {
