@@ -170,5 +170,13 @@
                 android:textSize="12sp" />
         </LinearLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="end"
+            android:text="Version 1.0.0"
+            android:textColor="@color/colorPrimary" />
     </RelativeLayout>
+
 </android.support.design.widget.CoordinatorLayout>
