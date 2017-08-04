@@ -175,7 +175,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:gravity="end"
-            android:text="Version 1.0.0"
+            android:text="Version 1.0.1"
             android:textColor="@color/colorPrimary" />
     </RelativeLayout>
 

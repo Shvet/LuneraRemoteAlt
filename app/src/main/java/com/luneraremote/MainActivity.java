@@ -90,13 +90,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         -69);
                 break;
             case R.id.occupancy_lost:
-                snackBarShow("OFF Message Sent.");
+                if (beaconTransmitter != null) {
+                    beaconTransmitter.stopAdvertising();
+                }
+                /*snackBarShow("OFF Message Sent.");
                 StartAdvertiser(
                         0x528,
                         "4c554e45-5241-534d-4152-544c49474854",
                         "06",
                         "",
-                        -69);
+                        -69);*/
                 break;
             case R.id.dim:
                 snackBarShow("Dim Request NOT IMPLEMENTED.");
@@ -189,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /*
          *  Timer will stop after 2 Seconds, Change 2 will other numbers for following seconds
          */
-        reScheduleTimer(2);
+//        reScheduleTimer(2);
     }
 
     @Override
